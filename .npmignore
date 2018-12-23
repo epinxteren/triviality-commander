@@ -1,0 +1,10 @@
+node_modules
+.idea
+.git
+yarn.lock
+yarn-error.log
+.stryker-tmp
+reports
+docs/*.md
+docs/build.js
+src/cli

@@ -1,0 +1,55 @@
+{
+  "name": "triviality-commander",
+  "private": false,
+  "version": "0.0.1",
+  "description": "Commander as a Triviality Module",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "prepublish": "yarn test && yarn create-docs && yarn create-build",
+    "watch": "tsc --watch",
+    "test": "npm-run-all --parallel tslint jscpd tsc",
+    "start": "ts-node example/bootstrap.ts",
+    "tsc": "tsc",
+    "tslint-fix": "tslint --fix --project tsconfig.json",
+    "tslint": "tslint --project tsconfig.json",
+    "jscpd": "jscpd --limit=-1",
+    "create-container-types": "ts-node src/cli/createContainerTypes.ts",
+    "create-docs": "ts-node docs/build.ts",
+    "create-build": "rm -fr build && yarn tsc --project tsconfig.build.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epinxteren/triviality-commander.git"
+  },
+  "keywords": [
+    "typescript",
+    "service container",
+    "di",
+    "dependency injection"
+  ],
+  "author": "Eric Pinxteren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/epinxteren/triviality-commander/issues"
+  },
+  "homepage": "https://github.com/epinxteren/triviality-commander#README",
+  "devDependencies": {
+    "@types/node": "^9.3.0",
+    "child-process-promise": "^2.2.1",
+    "jscpd": "^0.6.17",
+    "markdown-include": "^0.4.3",
+    "npm-run-all": "^4.1.3",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.9.2",
+    "tslint-loader": "^3.5.3",
+    "tslint-microsoft-contrib": "^5.0.2",
+    "typescript": "^3.2"
+  },
+  "dependencies": {
+    "@types/find-up": "^2.1.1",
+    "find-up": "^3.0.0",
+    "triviality": "^0"
+  }
+}

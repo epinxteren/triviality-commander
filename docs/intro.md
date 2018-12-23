@@ -19,14 +19,14 @@ Add the module to the ContainerFactory
 
 ######typescript "example/bootstrap.ts"
 
-Now the original 'greetingService' service is overridden, 
-
-if we execute the file we can:
+if we run the file, we can call the actual commands.
 
 ######ts-node "example/bootstrap.ts"(hello world)
 
 ######ts-node "example/bootstrap.ts"(hello world --shout)
 
 ## Version
+
+CommanderPackageVersionModule exposes automatic version to commander based on your package.json
 
 ######ts-node "example/bootstrap.ts"(--version)

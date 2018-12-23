@@ -103,9 +103,7 @@ ContainerFactory
 ```
         
 
-Now the original 'greetingService' service is overridden, 
-
-if we execute the file we can:
+if we run the file, we can call the actual commands.
 
 
 ```bash
@@ -122,6 +120,8 @@ HELLO WORLD
         
 
 ## Version
+
+CommanderPackageVersionModule exposes automatic version to commander based on your package.json
 
 
 ```bash

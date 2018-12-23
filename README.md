@@ -126,7 +126,7 @@ CommanderPackageVersionModule exposes automatic version to commander based on yo
 
 ```bash
 ./node_modules/.bin/ts-node example/bootstrap.ts --version
-0.0.1
+0.0.2
 ```
         
 

@@ -1,6 +1,6 @@
 import { ContainerFactory } from 'triviality';
-import { CommanderModule } from '../src/CommanderModule';
-import { CommanderPackageVersionModule } from '../src/VersionModule/CommanderPackageVersionModule';
+import { CommanderModule } from '../src';
+import { CommanderPackageVersionModule } from '../src';
 import { CommanderExampleModule } from './CommanderExampleModule';
 
 ContainerFactory

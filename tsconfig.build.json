@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/index.ts"],
+  "include": ["src/index.ts", "src/VersionModule/index.ts"],
   "exclude": ["example", "build", "node_modules"]
 }

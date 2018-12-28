@@ -1,7 +1,7 @@
 {
   "name": "triviality-commander",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.2.0",
   "description": "Commander as a Triviality Module",
   "main": "build/index.js",
   "types": "build/index.d.ts",

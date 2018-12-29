@@ -3,6 +3,7 @@
 * [Installation](#installation)
 * [Triviality commander](#triviality-commander)
   * [Example](#example)
+* [Usage](#usage)
 * [Thanks](#thanks)
 * [Reads](#reads)
 
@@ -29,21 +30,23 @@ Add integration for [Commander](https://www.npmjs.com/package/commander) in Triv
 
 - Add option to split commands configuration over multiple Modules into multiple configuration services.
 - Exposes Module for automatic version based on your package.json
+- StartCommanderService service that response when no valid command is given. 
   
 ## Example
  
-Example commander configuration server:
+Example commander configuration:
 
 
 ```typescript
 import { Command } from 'commander';
 import { CommanderConfigurationInterface } from 'triviality-commander';
 
-export class CommanderExampleConfiguration implements CommanderConfigurationInterface {
+export class CommanderHalloConfiguration implements CommanderConfigurationInterface {
 
   public async configure(program: Command) {
     program
       .command('hello <name>')
+      .description('Say hello to someone')
       .option('-s, --shout', 'shout the hello message')
       .action((name, cmd: { shout: boolean }) => {
         const message = `hello ${name}`;
@@ -60,7 +63,8 @@ Module with configuration added to the configuration registry:
 ```typescript
 import { Module } from 'triviality';
 import { CommanderConfigurationInterface } from 'triviality-commander';
-import { CommanderExampleConfiguration } from './CommanderExampleConfiguration';
+import { CommanderHalloConfiguration } from './CommanderHalloConfiguration';
+import { CommanderByeConfiguration } from './CommanderByeConfiguration';
 
 export class CommanderExampleModule implements Module {
   public registries() {
@@ -68,13 +72,18 @@ export class CommanderExampleModule implements Module {
       commanderConfigurations: (): CommanderConfigurationInterface[] => {
         return [
           this.commanderExampleConfiguration(),
+          this.commanderByeExample(),
         ];
       },
     };
   }
 
   public commanderExampleConfiguration() {
-    return new CommanderExampleConfiguration();
+    return new CommanderHalloConfiguration();
+  }
+
+  public commanderByeExample() {
+    return new CommanderByeConfiguration();
   }
 }
 ```
@@ -97,8 +106,8 @@ ContainerFactory
   .build()
   .then((container) => {
     container
-      .commanderService()
-      .parse(process.argv);
+      .startCommanderService()
+      .start();
   });
 ```
         
@@ -109,6 +118,13 @@ if we run the file, we can call the actual commands.
 ```bash
 ./node_modules/.bin/ts-node example/bootstrap.ts hello world
 hello world
+```
+        
+
+
+```bash
+./node_modules/.bin/ts-node example/bootstrap.ts bye world
+bye world
 ```
         
 
@@ -127,6 +143,37 @@ CommanderPackageVersionModule exposes automatic version to commander based on yo
 ```bash
 ./node_modules/.bin/ts-node example/bootstrap.ts --version
 0.2.0
+```
+        
+
+# Usage
+
+To create a terminal application you can best use [ts-node](https://www.npmjs.com/package/ts-node). 
+Call your typescript service container from there.
+
+
+```typescript
+#!/usr/bin/env node
+
+require("ts-node/register");
+require("./example/bootstrap");
+```
+        
+
+Don't forget to give it executable permissions (chmod +x ./cli.js).
+
+Now you can directly run your commands:
+
+
+```bash
+./cli.js hello world -s
+HELLO WORLD
+```
+        
+
+```bash
+./cli.js bye world
+bye world
 ```
         
 

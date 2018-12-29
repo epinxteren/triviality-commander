@@ -11,6 +11,6 @@ ContainerFactory
   .build()
   .then((container) => {
     container
-      .commanderService()
-      .parse(process.argv);
+      .startCommanderService()
+      .start();
   });

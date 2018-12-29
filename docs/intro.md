@@ -4,12 +4,13 @@ Add integration for [Commander](https://www.npmjs.com/package/commander) in Triv
 
 - Add option to split commands configuration over multiple Modules into multiple configuration services.
 - Exposes Module for automatic version based on your package.json
+- StartCommanderService service that response when no valid command is given. 
   
 ## Example !heading
  
-Example commander configuration server:
+Example commander configuration:
 
-######typescript "example/CommanderExampleConfiguration.ts"
+######typescript "example/CommanderHalloConfiguration.ts"
 
 Module with configuration added to the configuration registry: 
 
@@ -22,6 +23,8 @@ Add the module to the ContainerFactory
 if we run the file, we can call the actual commands.
 
 ######ts-node "example/bootstrap.ts"(hello world)
+
+######ts-node "example/bootstrap.ts"(bye world)
 
 ######ts-node "example/bootstrap.ts"(hello world --shout)
 

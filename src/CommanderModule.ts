@@ -1,6 +1,7 @@
 import { Module } from 'triviality';
 import { CommanderConfigurationInterface } from './CommanderConfigurationInterface';
 import { Command } from 'commander';
+import { StartCommanderService } from './StartCommanderService';
 
 export class CommanderModule implements Module {
   public registries() {
@@ -23,5 +24,9 @@ export class CommanderModule implements Module {
 
   public commanderService(): Command {
     return new Command();
+  }
+
+  public startCommanderService() {
+    return new StartCommanderService(this.commanderService());
   }
 }

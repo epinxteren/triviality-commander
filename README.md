@@ -41,7 +41,7 @@ Example commander configuration:
 import { Command } from 'commander';
 import { CommanderConfigurationInterface } from 'triviality-commander';
 
-export class CommanderHalloConfiguration implements CommanderConfigurationInterface {
+export class CommanderHelloConfiguration implements CommanderConfigurationInterface {
 
   public async configure(program: Command) {
     program
@@ -63,7 +63,7 @@ Module with configuration added to the configuration registry:
 ```typescript
 import { Module } from 'triviality';
 import { CommanderConfigurationInterface } from 'triviality-commander';
-import { CommanderHalloConfiguration } from './CommanderHalloConfiguration';
+import { CommanderHelloConfiguration } from './CommanderHelloConfiguration';
 import { CommanderByeConfiguration } from './CommanderByeConfiguration';
 
 export class CommanderExampleModule implements Module {
@@ -79,7 +79,7 @@ export class CommanderExampleModule implements Module {
   }
 
   public commanderExampleConfiguration() {
-    return new CommanderHalloConfiguration();
+    return new CommanderHelloConfiguration();
   }
 
   public commanderByeExample() {
@@ -142,7 +142,7 @@ CommanderPackageVersionModule exposes automatic version to commander based on yo
 
 ```bash
 ./node_modules/.bin/ts-node example/bootstrap.ts --version
-0.2.0
+0.3.1
 ```
         
 

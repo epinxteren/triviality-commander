@@ -1,6 +1,6 @@
 import { Module } from 'triviality';
 import { CommanderConfigurationInterface } from '../src';
-import { CommanderHalloConfiguration } from './CommanderHalloConfiguration';
+import { CommanderHelloConfiguration } from './CommanderHelloConfiguration';
 import { CommanderByeConfiguration } from './CommanderByeConfiguration';
 
 export class CommanderExampleModule implements Module {
@@ -16,7 +16,7 @@ export class CommanderExampleModule implements Module {
   }
 
   public commanderExampleConfiguration() {
-    return new CommanderHalloConfiguration();
+    return new CommanderHelloConfiguration();
   }
 
   public commanderByeExample() {

@@ -10,7 +10,7 @@ Add integration for [Commander](https://www.npmjs.com/package/commander) in Triv
  
 Example commander configuration:
 
-######typescript "example/CommanderHalloConfiguration.ts"
+######typescript "example/CommanderHelloConfiguration.ts"
 
 Module with configuration added to the configuration registry: 
 

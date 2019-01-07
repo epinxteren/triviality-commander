@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { CommanderConfigurationInterface } from '../src';
 
-export class CommanderHalloConfiguration implements CommanderConfigurationInterface {
+export class CommanderHelloConfiguration implements CommanderConfigurationInterface {
 
   public async configure(program: Command) {
     program

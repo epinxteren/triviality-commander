@@ -1,7 +1,7 @@
 {
   "name": "triviality-commander",
   "private": false,
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Commander as a Triviality Module",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -49,7 +49,8 @@
   },
   "dependencies": {
     "@types/find-up": "^2.1.1",
-    "find-up": "^3.0.0",
+    "commander": "^2",
+    "find-up": "^3",
     "triviality": "^0"
   }
 }
